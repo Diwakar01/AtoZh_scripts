@@ -1,26 +1,32 @@
-cd ../../..
+cmsenv
 
-root -l pass_fail_plots_def3.C
+cd ../../
+
+rm plots*root
+
+cd ..
+
+root -l -b pass_fail_plots_def3.C
 
 cd pass_fail_files
 
-cp plots_data_0.root ./A2ZhFakeFactorScripts/mt_plots/plots_data.root
+hadd -f ./A2ZhFakeFactorScripts/mt_plots/plots_data.root plots_EGamma_0.root plots_SingleMuon_1.root
 
-rm plots_data_0.root
+rm plots_EGamma_0.root plots_SingleMuon_1.root
 
-hadd ./A2ZhFakeFactorScripts/mt_plots/plots_DYJetsToLL_M-50.root plots_DY*root
+hadd -f ./A2ZhFakeFactorScripts/mt_plots/plots_DYJetsToLL_M-50.root plots_DY*root
 
 rm plots_DY*root
 
-hadd ./A2ZhFakeFactorScripts/mt_plots/plots_Diboson.root plots_WZTo2L2Q_13TeV_amcatnloFXFX_madspin_pythia8_33.root plots_WZTo3LNu_TuneCP5_13TeV-amcatnloFXFX-pythia8_31.root plots_ZZTo2L2Q_37.root plots_ZZTo4L_TuneCP5_13TeV_powheg_pythia8_35.root
+hadd -f ./A2ZhFakeFactorScripts/mt_plots/plots_Diboson.root plots_WZTo2L2Q_13TeV_amcatnloFXFX_madspin_pythia8_34.root plots_WZTo3LNu_TuneCP5_13TeV-amcatnloFXFX-pythia8_32.root plots_ZZTo2L2Q_38.root plots_ZZTo4L_TuneCP5_13TeV_powheg_pythia8_36.root
 
-rm plots_WZTo2L2Q_13TeV_amcatnloFXFX_madspin_pythia8_33.root plots_WZTo3LNu_TuneCP5_13TeV-amcatnloFXFX-pythia8_31.root plots_ZZTo2L2Q_37.root plots_ZZTo4L_TuneCP5_13TeV_powheg_pythia8_35.root
+rm plots_WZTo2L2Q_13TeV_amcatnloFXFX_madspin_pythia8_34.root plots_WZTo3LNu_TuneCP5_13TeV-amcatnloFXFX-pythia8_32.root plots_ZZTo2L2Q_38.root plots_ZZTo4L_TuneCP5_13TeV_powheg_pythia8_36.root
 
-hadd ./A2ZhFakeFactorScripts/mt_plots/plots_TTbar.root plots_TTTo*root
+hadd -f ./A2ZhFakeFactorScripts/mt_plots/plots_TTbar.root plots_TTTo*root
 
 rm plots_TTTo*root
 
-hadd ./A2ZhFakeFactorScripts/mt_plots/plots_other.root *root
+hadd -f ./A2ZhFakeFactorScripts/mt_plots/plots_other.root *root
 
 cd ./A2ZhFakeFactorScripts/
 
